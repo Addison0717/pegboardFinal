@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import './Notifications.css'
 import Notifications from './Notifications'
 import {makeRequest, makeMatch} from '../../actions/users'
+import notificationImg from '../../images/pegBoardNotifications.png'
 const r = {
   requesterId:3,
   posterId: 1,
@@ -31,7 +32,11 @@ class NotificationsContainer extends React.PureComponent {
   render() {
 
     // return <div>hola</div>
-    return <Notifications users = { this.props.users } logUserId = { this.props.logUserId} accept={this.acceptRequest}/>
+    return <div className="container">
+    <label className={"switch"}><input type={"checkbox"}/><span className={"slider round"}></span></label>
+      <img className ="headerImg" src={notificationImg}/>
+      <Notifications users = { this.props.users } logUserId = { this.props.logUserId} accept={this.acceptRequest}/>
+    </div>
   }
 }
 
